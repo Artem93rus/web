@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+/* -----------------------------------------Основные настройки----------------------------------------- */
+
+:root{
+    font-size: 24px;
+    color: wheat;
+    text-shadow: 1px 1px 0 #000;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "PT Sans Narrow", serif;
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3{
+    padding: 10px;
+    font-family: "Geologica", serif;
+    text-align: center;
+}
+
+h1, h2, h3::after{
+    content: "";
+    border-bottom: 4px solid #f5deb3;
+    text-align: center;
+}
+
+button{
+    height: 50px;
+    width: 250px;
+    font-size: 24px;
+    background: #f5deb3;
+    color: #FFCC66;
+    text-shadow: 1px 1px 0 #000;
+    border: none;
+    border-radius: 25px;
+    text-align: center;
+    transition: .5s;
+}
+
+button:hover{
+    color: #f5deb3;
+    background: #FFCC66;
+    cursor: pointer;
+}
+
+/* -----------------------------------------Шапка----------------------------------------- */
+header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to left, #FFCC66 25%, #000 75%);
+}
+
+.logo{
+    padding: 10px;
+    height: 104px;
+    background: #FFCC66;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.logo:hover{
+    background: #f5deb3;
+}
+
+a{
+    text-decoration: none;
+    color: wheat;
+    transition: .5s;
+}
+
+nav{
+    padding-right: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+nav a:hover{
+    color: #000;
+    cursor: pointer;
+}
+
+nav a:active{
+    transition: 0.1s;
+    color: grey;
+}
+
+.burger-menu{
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    content: "";
+    all: unset;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 35px;
+    border: 1px solid #FFCC66;
+    background: #FFCC66;
+    z-index: 20x;
+    border-radius: 8px;
+    right: 35px;
+    cursor: pointer;
+    display: none;
+}
+
+.burger-menu::after{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    content: url("img/icons/hamburger.svg");
+}
+
+.burger-menu:checked::after{
+    content: url("img/icons/close.svg");
+}
+
+html:has(.burger-menu:checked){
+    nav {
+        left: 0;
+    }
+}
+
+
+/* -----------------------------------------Hero----------------------------------------- */
+.hero{
+    padding: 100px;
+    background: url(img/bg.png) center/cover fixed;
+    flex: auto;
+}
+
+.config{
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 35px 3px rgba(34, 60, 80, 0.2) inset;
+    border-radius: 50px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+/* -----------------------------------------Первый блок----------------------------------------- */
+.about-one{
+    display: flex;
+    gap: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img-mebel{
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.about-text{
+    padding: 20px;
+    max-width: 500px;
+}
+
+/* -----------------------------------------Второй блок----------------------------------------- */
+.about-two{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 150px;
+    grid-template-areas: 
+    "i1 i1 i1"
+    "i2 i3 i4"
+    "i2 i5 i4";
+    place-items: center;
+}
+
+.img-chair, .img-i1, .img-i2, .img-i3, .img-i4{
+    width: 500px;
+    border-radius: 10px;
+}
+
+/* -----------------------------------------Третий блок----------------------------------------- */
+.about-three{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "y1 y1 y2"
+    "y4 y3 y2"
+    "y4 y5 y5";
+    place-items: center;
+    justify-content: center;
+}
+
+.about-three-text{
+    text-align: center;
+    font-size: 36px;
+    padding: 15px;
+}
+
+/* -----------------------------------------Готовые работы----------------------------------------- */
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.cards-grid{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card-item{
+    padding: 20px;
+    max-width: 400px;
+    height: 500px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-bg1{
+    background: url(img/card1.png);
+    background-size: cover;
+}
+
+.card-bg2{
+    background: url(img/card2.png);
+    background-size: cover;
+}
+
+.card-bg3{
+    background: url(img/card3.png);
+    background-size: cover;
+}
+
+.card-bg4{
+    background: url(img/card4.png);
+    background-size: cover;
+}
+
+.card-item h3{
+    width: 360px;
+}
+
+.card-item span{
+    flex: auto;
+}
+
+.card-item p{
+    align-self: flex-end;
+}
+
+/* -----------------------------------------Подвал----------------------------------------- */
+footer{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, #FFCC66 25%, #000 75%);
+    padding: 20px;
+}
+
+.footer-main{
+    padding: 30px 20px;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-info{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    min-width: 300px;
+}
+
+.footer-info ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-copyright{
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    font-size: 18px;
+}
+
+
+
+
+/* -----------------------------------------Адаптивность----------------------------------------- */
+/* -----------------------------------------FullHD----------------------------------------- */
+@media screen and (max-width: 1800px) {
+    .cards-grid{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 1590px) {
+    .about-three-text{
+        font-size: 22px;
+    }
+}
+/* -----------------------------------------Ноутбуки----------------------------------------- */
+@media screen and (max-width: 1440px) {
+    .about-one{
+        flex-direction: column;
+    }
+    .about-two{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-text{
+        max-width: 100%;
+    }
+    .about-three{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .about-three-text{
+        font-size: 36px;
+    }
+}
+/* -----------------------------------------Планшеты----------------------------------------- */
+@media screen and (max-width: 992px) {
+    .hero{
+        padding: 50px;
+    }
+    .about-three{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .img-chair, .img-i1, .img-i2, .img-i3, .img-i4{
+    max-width: 100%;
+    }
+    .container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .links{
+        flex-direction: row;
+    }
+}
+/* -----------------------------------------Телефоны----------------------------------------- */
+@media screen and (max-width: 768px) {
+    .hero{
+        padding: 30px;
+    }
+    .config{
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    }
+    .burger-menu{
+        display: block;
+    }
+    nav{
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        background: linear-gradient(to right, #FFCC66 25%, #000 75%);
+        padding: 24px;
+        position: fixed;
+        left: -300px;
+        top: 100px;
+        transition: 1s;
+        z-index: 5;
+    }
+}
+@media screen and (max-width: 576px) {
+    :root{
+        font-size: 18px;
+    }
+    .about-three-text{
+        font-size: 18px;
+    }
+    .contacts{
+        text-align: center;
+    }
+}
