@@ -22,13 +22,17 @@ body{
     min-height: 100vh;
 }
 
+h1, h2, h3, p, span{
+    transition: 0.5s;
+}
+
 h1, h2, h3{
     padding: 10px;
     font-family: "Geologica", serif;
     text-align: center;
 }
 
-h1, h2, h3::after{
+h1, h2, h3, h4::after{
     content: "";
     border-bottom: 4px solid #f5deb3;
     text-align: center;
@@ -51,6 +55,10 @@ button:hover{
     color: #f5deb3;
     background: #FFCC66;
     cursor: pointer;
+}
+
+button:active{
+    transform: scale(0.9);
 }
 
 /* -----------------------------------------Шапка----------------------------------------- */
@@ -139,7 +147,6 @@ html:has(.burger-menu:checked){
     }
 }
 
-
 /* -----------------------------------------Hero----------------------------------------- */
 .hero{
     padding: 100px;
@@ -154,6 +161,7 @@ html:has(.burger-menu:checked){
     border-radius: 50px;
     overflow: hidden;
     backdrop-filter: blur(10px);
+    transition: 0.5s;
 }
 
 /* -----------------------------------------Первый блок----------------------------------------- */
@@ -214,6 +222,7 @@ html:has(.burger-menu:checked){
 .container{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .cards-grid{
@@ -227,30 +236,30 @@ html:has(.burger-menu:checked){
 
 .card-item{
     padding: 20px;
-    max-width: 400px;
     height: 500px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    transition: 0.5s;
 }
 
 .card-bg1{
-    background: url(img/card1.png);
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(img/card1.png);
     background-size: cover;
 }
 
 .card-bg2{
-    background: url(img/card2.png);
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(img/card2.png);
     background-size: cover;
 }
 
 .card-bg3{
-    background: url(img/card3.png);
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(img/card3.png);
     background-size: cover;
 }
 
 .card-bg4{
-    background: url(img/card4.png);
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(img/card4.png);
     background-size: cover;
 }
 
@@ -270,7 +279,7 @@ html:has(.burger-menu:checked){
 footer{
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to right, #FFCC66 25%, #000 75%);
+    background: linear-gradient(to right, #FFCC66, #000);
     padding: 20px;
 }
 
@@ -294,6 +303,7 @@ footer{
     flex-direction: column;
     gap: 10px;
     list-style: none;
+    text-align: center;
 }
 
 .links{
@@ -308,7 +318,30 @@ footer{
     font-size: 18px;
 }
 
+/* -----------------------------------------Живой сайт----------------------------------------- */
+.config:hover{
+    transform: scale(1.03);
+}
 
+.card-bg1:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(img/card1.png);
+    background-size: cover;
+}
+
+.card-bg2:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(img/card2.png);
+    background-size: cover;
+}
+
+.card-bg3:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(img/card3.png);
+    background-size: cover;
+}
+
+.card-bg4:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(img/card4.png);
+    background-size: cover;
+}
 
 
 /* -----------------------------------------Адаптивность----------------------------------------- */
@@ -317,6 +350,7 @@ footer{
     .cards-grid{
         display: flex;
         flex-wrap: wrap;
+        max-width: 100%;
     }
 }
 @media screen and (max-width: 1590px) {
@@ -345,6 +379,12 @@ footer{
         font-size: 36px;
     }
 }
+@media screen and (max-width: 1006px) {
+    .links{
+        flex-direction: row;
+    }
+
+}
 /* -----------------------------------------Планшеты----------------------------------------- */
 @media screen and (max-width: 992px) {
     .hero{
@@ -363,8 +403,8 @@ footer{
         justify-content: space-around;
         align-items: center;
     }
-    .links{
-        flex-direction: row;
+    .footer-info{
+        flex-direction: column;
     }
 }
 /* -----------------------------------------Телефоны----------------------------------------- */
@@ -398,7 +438,10 @@ footer{
         font-size: 18px;
     }
     .about-three-text{
-        font-size: 18px;
+        font-size: 22px;
+    }
+    .card-item h3{
+        width: auto;
     }
     .contacts{
         text-align: center;
